@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "@evershop/evershop": "2.1.2",
-    "@evershop/sendgrid": "2.1.2"
+    "@evershop/sendgrid": "2.1.1"
   }
 }
