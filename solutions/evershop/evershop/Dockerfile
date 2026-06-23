@@ -1,15 +1,9 @@
-FROM node:20-alpine
+FROM evershop/evershop:latest
 
-WORKDIR /app
+ENV DB_HOST=${DB_HOST}
+ENV DB_PORT=${DB_PORT}
+ENV DB_USER=${DB_USER}
+ENV DB_PASSWORD=${DB_PASSWORD}
+ENV DB_NAME=${DB_NAME}
 
-COPY package.json .
-RUN npm install --legacy-peer-deps
-
-COPY config ./config
-COPY entrypoint.sh create-admin.mjs ./
-RUN chmod +x entrypoint.sh
-
-RUN mkdir -p extensions themes media public
-RUN npx evershop build
-
-ENTRYPOINT ["./entrypoint.sh"]
+EXPOSE 3000
